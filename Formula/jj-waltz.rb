@@ -1,25 +1,25 @@
 class JjWaltz < Formula
   desc "A Jujutsu workspace switcher inspired by Worktrunk"
   homepage "https://github.com/ezracerpac/jj-waltz"
-  version "0.1.2"
+  version "0.1.3"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.2/jj-waltz-aarch64-apple-darwin.tar.gz"
-      sha256 "bc0ee1eb30c15d2e5b617fd5ad3b9ec8a11c37fd3321b5dcaf40d9abb54938b6"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.3/jj-waltz-aarch64-apple-darwin.tar.gz"
+      sha256 "50fb8e0403b9cb4bae9da9255ba9ebce4a27b2a8ec2c346f31461b9b30d932d5"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.2/jj-waltz-x86_64-apple-darwin.tar.gz"
-      sha256 "570b6a1936275ee585b7ae0e3c295ba166ea9bc4549c5b3ee645cf0da2faef94"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.3/jj-waltz-x86_64-apple-darwin.tar.gz"
+      sha256 "7174ec5786f66dcb56df82ab06360fcaf174acca79d34cdfe918a48d5b3b7c6f"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.2/jj-waltz-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "c82f2804bcac8515623c164f1815bde5ce907f56ef4410261cf5b32f10dfeb82"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.3/jj-waltz-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "9ea78d6227b2ab6ec8874508b6acc8dd9b5907ce69d97749b3cad9138fb4c7fa"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.2/jj-waltz-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "1960df25ac8a8266de2468aeb15b80510f12a5ad0f9843616c3e822f2056f937"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.1.3/jj-waltz-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "62347788af955f0fdbdd274ae9b5937d2e0d01efc4cfafe9ed3708e64063ef55"
     end
   end
   license "MIT"
