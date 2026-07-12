@@ -1,35 +1,37 @@
 class JjWaltz < Formula
   desc "A Jujutsu workspace switcher inspired by Worktrunk"
   homepage "https://github.com/ezracerpac/jj-waltz"
-  version "0.3.0"
+  version "0.3.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.0/jj-waltz-aarch64-apple-darwin.tar.gz"
-      sha256 "b2f3aed09a2ccff07fb37a5140c70631928d77314c2ba6cb35a55d6958d7f24e"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-aarch64-apple-darwin.tar.gz"
+      sha256 "15bf4db10d3afdf717fa9fd97933693dc0a9280804621de0f29945955764a244"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.0/jj-waltz-x86_64-apple-darwin.tar.gz"
-      sha256 "dd89f6b8141daca213df01943face2c05bbdba6ce686476cdef86700da752d43"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-x86_64-apple-darwin.tar.gz"
+      sha256 "bfb95adfc5e5db5dcc85db22e47282e4e101906c5383262a27ddceef7211d5d1"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.0/jj-waltz-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "60feec77056d85124ba28049210162f1144e7a6ce511e1c40ce5a3d8eee8a422"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "3a6a134658f6bc670ba40a96b4c1d5a2e211df84a2e256d28211f591aca58e24"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.0/jj-waltz-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "a2f2ea071cb0f0f1d85228a5e615b26824568b5a266c3f78a7ae04b5616436f5"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "eb4dce8f098c8598d00584c508ed21fa88f5522e8c28f6d2f01b34133191c816"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":      {},
-    "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
-    "x86_64-pc-windows-gnu":     {},
-    "x86_64-unknown-linux-gnu":  {},
+    "aarch64-apple-darwin":              {},
+    "aarch64-unknown-linux-gnu":         {},
+    "x86_64-apple-darwin":               {},
+    "x86_64-pc-windows-gnu":             {},
+    "x86_64-unknown-linux-gnu":          {},
+    "x86_64-unknown-linux-musl-dynamic": {},
+    "x86_64-unknown-linux-musl-static":  {},
   }.freeze
 
   def target_triple
