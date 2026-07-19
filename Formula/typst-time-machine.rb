@@ -5,7 +5,7 @@
 class TypstTimeMachine < Formula
   desc "Browse rendered Typst documents through Git and Jujutsu history"
   homepage "https://github.com/EzraCerpac/typst-time-machine"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   depends_on "git"
@@ -13,20 +13,20 @@ class TypstTimeMachine < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/EzraCerpac/typst-time-machine/releases/download/v0.1.1/ttm-aarch64-apple-darwin.tar.gz"
-      sha256 "64d945149c3304ac64567f1d71f66c13acd11700eb390b439ecca2656ec2abf6"
+      url "https://github.com/EzraCerpac/typst-time-machine/releases/download/v0.1.2/ttm-aarch64-apple-darwin.tar.gz"
+      sha256 "c797db4e409c27f2ac52f11e25fd0f8460d94e47f781631ae55c102d2ce4b6e0"
     end
 
     on_intel do
-      url "https://github.com/EzraCerpac/typst-time-machine/releases/download/v0.1.1/ttm-x86_64-apple-darwin.tar.gz"
-      sha256 "56a7c45321f5284191e3e587390eb4779cd03e7276dde3bf2553b1bf8dfb8066"
+      url "https://github.com/EzraCerpac/typst-time-machine/releases/download/v0.1.2/ttm-x86_64-apple-darwin.tar.gz"
+      sha256 "3ce535f06f463df346a7eeb2b113b19efb7419a334a308789f30dd980d21076a"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/EzraCerpac/typst-time-machine/releases/download/v0.1.1/ttm-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "546c04d1407585aaf7a111902179f899b4b18f97c6bc4039d0aaa373e88bd548"
+      url "https://github.com/EzraCerpac/typst-time-machine/releases/download/v0.1.2/ttm-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "1fb609f8e21924a65d034f9c6838d92c5245a8a9f46a48a3f846678027cbfeac"
     end
   end
 
