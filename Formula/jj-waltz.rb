@@ -1,25 +1,25 @@
 class JjWaltz < Formula
   desc "A Jujutsu workspace switcher inspired by Worktrunk"
   homepage "https://github.com/ezracerpac/jj-waltz"
-  version "0.3.1"
+  version "0.4.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-aarch64-apple-darwin.tar.gz"
-      sha256 "15bf4db10d3afdf717fa9fd97933693dc0a9280804621de0f29945955764a244"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.4.0/jj-waltz-aarch64-apple-darwin.tar.gz"
+      sha256 "8ad05d4ccde1af3e03751f18f68019587f82ead4f2863b1dbca41c9996de4016"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-x86_64-apple-darwin.tar.gz"
-      sha256 "bfb95adfc5e5db5dcc85db22e47282e4e101906c5383262a27ddceef7211d5d1"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.4.0/jj-waltz-x86_64-apple-darwin.tar.gz"
+      sha256 "226c2062769ae85238771a26940a1104ac4f2ea786eac8bb93369c86b934f65e"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "3a6a134658f6bc670ba40a96b4c1d5a2e211df84a2e256d28211f591aca58e24"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.4.0/jj-waltz-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "d25a59a5a70a5bd93bb1233f4734fb95bf1ad8ca7ad17a2244c1f069b80fc9cf"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.3.1/jj-waltz-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "eb4dce8f098c8598d00584c508ed21fa88f5522e8c28f6d2f01b34133191c816"
+      url "https://github.com/ezracerpac/jj-waltz/releases/download/v0.4.0/jj-waltz-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "80fca27e5826444563e79705ea7f6a0441e4fba7a6a2d0975b14c5d7f3bc8c2d"
     end
   end
   license "MIT"
@@ -50,10 +50,18 @@ class JjWaltz < Formula
   end
 
   def install
-    bin.install "jw" if OS.mac? && Hardware::CPU.arm?
-    bin.install "jw" if OS.mac? && Hardware::CPU.intel?
-    bin.install "jw" if OS.linux? && Hardware::CPU.arm?
-    bin.install "jw" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "jw"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "jw"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "jw"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "jw"
+    end
 
     install_binary_aliases!
 
