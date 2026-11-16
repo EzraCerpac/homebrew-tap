@@ -9,7 +9,7 @@
 class Dots < Formula
   desc "Keep machines in the state a mise configuration declares"
   homepage "https://github.com/EzraCerpac/dots"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
 
   # The configuration sync needs Git 2.43 or newer, which macOS does not ship.
@@ -20,23 +20,23 @@ class Dots < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.0/dots-0.3.0-darwin-arm64.tar.gz"
-      sha256 "6eba8dd2381c670291832345e250bf9216565fc3cc2b0439f2c34749483402b4" # darwin-arm64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.1/dots-0.3.1-darwin-arm64.tar.gz"
+      sha256 "4f17a1c2ca77b4a5d1cd318732ffb9be56c05769a1d8cd853fa862e76a308f38" # darwin-arm64
     end
     on_intel do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.0/dots-0.3.0-darwin-amd64.tar.gz"
-      sha256 "0711d4e26988c0d522847f0d405c2e9f697de785e3de648235956a898a1d7a55" # darwin-amd64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.1/dots-0.3.1-darwin-amd64.tar.gz"
+      sha256 "aaed5a0a08b9da9ac6255ef8a0e019df713630c88f024cafec830bc878ed4f5c" # darwin-amd64
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.0/dots-0.3.0-linux-arm64.tar.gz"
-      sha256 "b7b170d10c369a1eb893b0af9cb4f1c1046625c7277b1484765306d78cddd55d" # linux-arm64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.1/dots-0.3.1-linux-arm64.tar.gz"
+      sha256 "ed25eea11829ecf45cf48278c6d05d783829910565a036e0d66c403ce1b69b64" # linux-arm64
     end
     on_intel do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.0/dots-0.3.0-linux-amd64.tar.gz"
-      sha256 "d2a313ede83a4266e3fb62551c9694e366cddcc997b10b7416276bf6117a47a5" # linux-amd64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.3.1/dots-0.3.1-linux-amd64.tar.gz"
+      sha256 "ea165d9416f6ce1f9daf0ce91c30cf664ade93d04b5637d9b823e17c26e86b4b" # linux-amd64
     end
   end
 
