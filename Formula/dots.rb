@@ -3,49 +3,46 @@
 
 # Reviewed source of the tap's Formula/dots.rb. For each release,
 # packaging/build-release renders this file with the release's version and
-# checksums into the dots.rb release asset. Nothing pushes it to the tap: copy
-# that asset by hand to Formula/dots.rb in EzraCerpac/homebrew-tap. Keep the
+# checksums into the dots.rb release asset. The release workflow copies that
+# asset to Formula/dots.rb in EzraCerpac/homebrew-tap after publication. Keep the
 # platform comment at the end of each sha256 line: the renderer matches on it.
 class Dots < Formula
   desc "Keep machines in the state a mise configuration declares"
   homepage "https://github.com/EzraCerpac/dots"
-  version "0.4.0"
+  version "0.5.2"
   license "MIT"
 
   # The configuration sync needs Git 2.43 or newer, which macOS does not ship.
   # dots also needs mise, which is not a dependency: most users run mise's own
-  # installer, which updates itself (see caveats). Node.js, uv, jq and the
-  # other tools come from the user's mise configuration.
+  # installer, which updates itself (see caveats).
   depends_on "git"
 
   on_macos do
     on_arm do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.4.0/dots-0.4.0-darwin-arm64.tar.gz"
-      sha256 "d47df9ad63e84b8456fb9f0be61072846e4a14fd569b0e83a8d6d8ce2c1703cc" # darwin-arm64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.5.2/dots-0.5.2-darwin-arm64.tar.gz"
+      sha256 "c333c1756f62ec1c443b2bdf5641fb9630400dd3a92c9afe8a02aaea2a97ba77" # darwin-arm64
     end
     on_intel do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.4.0/dots-0.4.0-darwin-amd64.tar.gz"
-      sha256 "8b7b85b62a7e9cc682c8a6dbdd29eb2bbf9a920174c7e5d9f0b3620f68667378" # darwin-amd64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.5.2/dots-0.5.2-darwin-amd64.tar.gz"
+      sha256 "ea9a873877634267f001b67d100e81c077f7457f20a4a9b67b1f6f810add31b0" # darwin-amd64
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.4.0/dots-0.4.0-linux-arm64.tar.gz"
-      sha256 "e64a21892d86697e68689fa221a8e7de0959f84828ddf35a454a63c013755131" # linux-arm64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.5.2/dots-0.5.2-linux-arm64.tar.gz"
+      sha256 "589cee255a57a55594b1ae6581c921473022f510c44e0a82d3c64feb28fabfd5" # linux-arm64
     end
     on_intel do
-      url "https://github.com/EzraCerpac/dots/releases/download/v0.4.0/dots-0.4.0-linux-amd64.tar.gz"
-      sha256 "c47595e614f0d0ddd3e918cedb9cd77e36bc86c9d27b56eb031c856723fa7026" # linux-amd64
+      url "https://github.com/EzraCerpac/dots/releases/download/v0.5.2/dots-0.5.2-linux-amd64.tar.gz"
+      sha256 "1b69abf34b85240826590aa725c2a74a5715daa522401ed6bb60851cfaae32ae" # linux-amd64
     end
   end
 
   def install
-    libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/dots"
-    fish_completion.install_symlink libexec/"completions/dots.fish"
-    zsh_completion.install_symlink libexec/"completions/_dots"
-    bash_completion.install_symlink libexec/"completions/dots.bash" => "dots"
+    # Homebrew stages the archive from its sole top-level directory, bin/.
+    bin.install "dots"
+    generate_completions_from_executable(bin/"dots", "completions")
   end
 
   def caveats
@@ -61,8 +58,10 @@ class Dots < Formula
   end
 
   test do
-    assert_match "dots #{version} (homebrew)", shell_output("#{bin}/dots --version")
-    assert_predicate libexec/"bin/dots-up", :executable?
-    assert_match "dots-shared-cli/3", shell_output("#{libexec}/bin/dots-up --capabilities")
+    assert_equal "dots #{version} (homebrew)\n", shell_output("#{bin}/dots --version")
+    { bash: bash_completion/"dots", zsh: zsh_completion/"_dots", fish: fish_completion/"dots.fish" }.each do |shell, path|
+      assert_predicate path, :file?
+      assert_equal shell_output("#{bin}/dots completions #{shell}").b, path.binread
+    end
   end
 end
